@@ -1,3 +1,7 @@
+### A number pattern generator ###
+
+
+
 def number_pattern(n):
     if not(isinstance(n, int)) or isinstance(n,  bool):
         return "Argument must be an integer value."
