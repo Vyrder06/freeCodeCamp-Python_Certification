@@ -2,8 +2,19 @@ def validate_isbn(isbn, length):
     if len(isbn) != length:
         print(f'ISBN-{length} code should be {length} digits long.')
         return
-    main_digits = isbn[0:length]
-    given_check_digit =  isbn[length]
+    
+    
+    main_digits = isbn[0:length - 1]
+    given_check_digit =  isbn[length - 1]
+    
+    if not main_digits.isdigit() or (given_check_digit not in '0123456789X'):
+                print('Invalid character was found.')
+                return
+    else:
+        if not isbn[:-1].isdigit():
+            print('Invalid character was found.')
+            return
+            
     main_digits_list = [int(digit) for digit in main_digits]
     # Calculate the check digit from other digits
     if length == 10:
